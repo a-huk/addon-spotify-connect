@@ -22,3 +22,4 @@ schema:
   username: str?
   password: password?
   autoplay: bool?
+  initial_volume: int(0,100)?

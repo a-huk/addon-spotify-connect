@@ -38,6 +38,7 @@ bitrate: 320
 username: frenck@example.com
 password: MySpotifyPassword
 autoplay: true
+initial_volume: 90
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
@@ -92,6 +93,10 @@ The password you use to login to your Spotify Premium account.
 ### Option: `autoplay`
 
 Whether Spotify should autoplay similar songs when reaching the end of the queue.
+
+### Option: `initial_volume`
+
+The initial volume in % from 0-100.
 
 ## Known issues and limitations
 

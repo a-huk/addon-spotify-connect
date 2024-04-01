@@ -9,6 +9,7 @@ declare name
 declare password
 declare username
 declare autoplay
+declare initial_volume
 
 bashio::log.info 'Starting the Spotify daemon...'
 
@@ -33,6 +34,11 @@ fi
 # Autoplay
 if bashio::config.true 'autoplay'; then
   options+=(--autoplay)
+fi
+
+# Initial volume
+if bashio::config.has_value 'initial_volume'; then
+  options+=(--initial-volume "$(bashio::config 'initial_volume')")
 fi
 
 # Save writes

@@ -27,3 +27,7 @@ configuration:
     name: Autoplay
     description: >-
       Whether Spotify should autoplay similar songs at the end of the queue.
+  initial_volume:
+    name: Initial volume
+    description: >-
+      The initial volume in % from 0-100.
