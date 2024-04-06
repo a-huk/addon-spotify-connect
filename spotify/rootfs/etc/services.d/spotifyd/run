@@ -10,6 +10,7 @@ declare password
 declare username
 declare autoplay
 declare initial_volume
+declare enable_volume_normalisation
 
 bashio::log.info 'Starting the Spotify daemon...'
 
@@ -39,6 +40,11 @@ fi
 # Initial volume
 if bashio::config.has_value 'initial_volume'; then
   options+=(--initial-volume "$(bashio::config 'initial_volume')")
+fi
+
+# Volume Normalisation
+if bashio::config.true 'enable_volume_normalisation'; then
+  options+=(--enable-volume-normalisation)
 fi
 
 # Save writes

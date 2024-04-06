@@ -31,3 +31,7 @@ configuration:
     name: Initial volume
     description: >-
       The initial volume in % from 0-100.
+  enable_volume_normalisation:
+    name: Enable volume normalisation
+    description: >-
+      Whether to enable volume normalisation.
