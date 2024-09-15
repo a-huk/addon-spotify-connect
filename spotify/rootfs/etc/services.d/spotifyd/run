@@ -15,7 +15,9 @@ declare enable_volume_normalisation
 bashio::log.info 'Starting the Spotify daemon...'
 
 # Bitrate
-options+=(--bitrate $(bashio::config 'bitrate'))
+if bashio::config.exists 'bitrate'; then
+  options+=(--bitrate $(bashio::config 'bitrate'))
+fi
 
 # Device name
 name=$(bashio::config 'name')
