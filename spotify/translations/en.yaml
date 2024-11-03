@@ -35,3 +35,7 @@ configuration:
     name: Enable volume normalisation
     description: >-
       Whether to enable volume normalisation.
+  enable_cache:
+    name: Enable cache
+    description: >-
+      Whether or not to enable cache. Disable this on SD cards to save writes.

@@ -11,6 +11,7 @@ declare username
 declare autoplay
 declare initial_volume
 declare enable_volume_normalisation
+declare enable_cache
 
 bashio::log.info 'Starting the Spotify daemon...'
 
@@ -22,6 +23,16 @@ fi
 # Device name
 name=$(bashio::config 'name')
 options+=(--name "${name}")
+
+if bashio::config.exists 'credentials_json' && bashio::config 'enable_cache'; then
+  mkdir -p /data/cache
+  echo "$(bashio::config 'credentials_json')" > /data/cache/credentials.json
+fi
+
+# Cache
+if bashio::config 'enable_cache'; then
+  options+=(--cache "/data/cache")
+fi
 
 # Username / password
 if bashio::config.has_value 'username'; then

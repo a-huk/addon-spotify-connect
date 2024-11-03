@@ -15,6 +15,7 @@ init: false
 options:
   name: Home Assistant
   bitrate: 160
+  enable_cache: false
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   name: str
@@ -24,3 +25,5 @@ schema:
   autoplay: bool?
   initial_volume: int(0,100)?
   enable_volume_normalisation: bool?
+  enable_cache: bool
+  credentials_json: str?
