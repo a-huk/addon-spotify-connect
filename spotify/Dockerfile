@@ -5,27 +5,29 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-# Setup base
-ARG LIBRESPOT_VERSION="0.6.0"
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
         build-base=0.5-r3 \
-        cargo=1.71.1-r0 \
-        git=2.40.3-r0 \
-        protobuf-dev=3.21.12-r2 \
-        pulseaudio-dev=16.1-r10 \
+        cargo=1.78.0-r0 \
+        git=2.45.2-r0 \
+        protobuf-dev=24.4-r1 \
+        pulseaudio-dev=17.0-r0 \
+        cmake \
+        rust-bindgen \
+        clang-dev \
     \
     && apk add --no-cache \
-        pulseaudio=16.1-r10 \
+        pulseaudio=17.0-r0 \
     \
     && cargo install \
         --locked \
+        --git https://github.com/librespot-org/librespot.git \
+        --branch dev \
         --no-default-features \
         --features pulseaudio-backend \
         --root /usr \
         --bin librespot \
-        --version "${LIBRESPOT_VERSION}" \
         --verbose \ 
         -- librespot \
     \
