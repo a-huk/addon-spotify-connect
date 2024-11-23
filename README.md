@@ -38,6 +38,17 @@ have to do is hook up your sound system to the Pi and start booming!
 
 [:books: Read the full add-on documentation][docs]
 
+## Login
+
+Recently, password login has been deprecated. As such, you should log in using OAuth:
+1) Leave the username and password fields blank in the add-on configuration.
+2) Enable caching in the configuration.
+3) Start the add-on.
+4) Check the logs for a URL.
+5) Copy the URL to your browser and log in.
+6) Copy the resulting URL.
+7) Open a terminal on your Home Assistant installation (e.g., Advanced SSH & Terminal add-on) and use curl to send the URL.
+8) Enjoy!
 ## Support
 
 Got questions?

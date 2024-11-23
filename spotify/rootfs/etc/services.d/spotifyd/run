@@ -63,10 +63,10 @@ fi
 # Save writes
 options+=(--disable-audio-cache)
 
-# Are we running in debug mode?
-if bashio::debug; then
-  options+=(--verbose)
-fi
+# Debug to ensure we get login url
+options+=(--verbose)
+
+options+=(--enable-oauth)
 
 # Run librespot
 exec librespot "${options[@]}"
