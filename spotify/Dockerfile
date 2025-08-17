@@ -9,16 +9,16 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        build-base=0.5-r3 \
-        cargo=1.87.0-r0 \
-        git=2.49.0-r0 \
-        protobuf-dev=29.4-r0 \
-        pulseaudio-dev=17.0-r5 \
-        cmake=3.31.7-r1 \
-        clang19-libclang=19.1.7-r6 \
+        build-base \
+        cargo \
+        git \
+        protobuf-dev \
+        pulseaudio-dev \
+        cmake \
+        clang19-libclang \
     \
     && apk add --no-cache \
-        pulseaudio=17.0-r5 \
+        pulseaudio \
     \
     && cargo install --force --locked bindgen-cli \
     && export PATH="$HOME/.cargo/bin:$PATH" \
