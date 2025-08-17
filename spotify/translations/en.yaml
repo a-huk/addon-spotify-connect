@@ -14,6 +14,10 @@ configuration:
     description: >-
       The bitrate Spotify should use. The higher, the better the sound quality,
       however, the add-on consumes more data.
+  initial_volume:
+    name: Initial Volume
+    description: >-
+      Initial volume in % from 0-100.
   username:
     name: Spotify username
     description: >-
@@ -27,15 +31,3 @@ configuration:
     name: Autoplay
     description: >-
       Whether Spotify should autoplay similar songs at the end of the queue.
-  initial_volume:
-    name: Initial volume
-    description: >-
-      The initial volume in % from 0-100.
-  enable_volume_normalisation:
-    name: Enable volume normalisation
-    description: >-
-      Whether to enable volume normalisation.
-  enable_cache:
-    name: Enable cache
-    description: >-
-      Whether or not to enable cache. Disable this on SD cards to save writes.

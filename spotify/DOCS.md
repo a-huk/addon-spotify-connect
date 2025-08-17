@@ -35,11 +35,10 @@ Example add-on configuration:
 log_level: info
 name: HomeAssistant
 bitrate: 320
+initial_volume: 50
 username: frenck@example.com
 password: MySpotifyPassword
 autoplay: true
-initial_volume: 90
-enable_volume_normalisation: false
 ```
 
 **Note**: _This is just an example, don't copy and paste it! Create your own!_
@@ -77,6 +76,13 @@ however, the add-on consumes more data.
 
 Valid values: `96`, `160` (default) or `320`.
 
+### Option: `initial_volume`
+
+Initial volume in % from 0-100. This setting takes effect when the addon starts or
+recovers from a crash.
+
+initial_volume: 50 # Optional
+
 ### Option: `username`
 
 **IMPORTANT**: _This requires a Spotify Premium account!_
@@ -94,14 +100,6 @@ The password you use to login to your Spotify Premium account.
 ### Option: `autoplay`
 
 Whether Spotify should autoplay similar songs when reaching the end of the queue.
-
-### Option: `initial_volume`
-
-The initial volume in % from 0-100.
-
-### Option: `enable_volume_normalisation`
-
-Whether to enable volume normalisation. For more info see the [librespot documentation][librespot-volume-normalisation].
 
 ## Known issues and limitations
 
@@ -146,7 +144,7 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2018-2024 Franck Nijhof
+Copyright (c) 2018-2025 Franck Nijhof
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -174,7 +172,6 @@ SOFTWARE.
 [forum]: https://community.home-assistant.io/t/home-assistant-community-add-on-spotify-connect/61210?u=frenck
 [frenck]: https://github.com/frenck
 [issue]: https://github.com/hassio-addons/addon-spotify-connect/issues
-[librespot-volume-normalisation]: https://github.com/librespot-org/librespot/wiki/Options#volume-normalisation
 [reddit]: https://reddit.com/r/homeassistant
 [releases]: https://github.com/hassio-addons/addon-spotify-connect/releases
 [semver]: http://semver.org/spec/v2.0.0.htm
