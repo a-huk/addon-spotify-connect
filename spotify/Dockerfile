@@ -6,7 +6,6 @@ FROM ${BUILD_FROM}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Setup base
-ARG LIBRESPOT_VERSION="0.7.1"
 # hadolint ignore=DL3003
 RUN \
     apk add --no-cache \
@@ -28,15 +27,16 @@ RUN \
     \
     && cargo install --force --locked bindgen-cli \
     && export PATH="$HOME/.cargo/bin:$PATH" \
-    && cargo install \
+    \
+    && git clone --depth 1 --branch dev https://github.com/librespot-org/librespot.git /tmp/librespot \
+    && cd /tmp/librespot \
+    && cargo build \
+        --release \
         --locked \
         --no-default-features \
         --features "native-tls pulseaudio-backend with-libmdns" \
-        --root /usr \
         --bin librespot \
-        --version "${LIBRESPOT_VERSION}" \
-        --verbose \
-        -- librespot \
+    && cp target/release/librespot /usr/bin/librespot \
     \
     && cargo uninstall bindgen-cli \
     && apk del --no-cache --purge .build-dependencies \
